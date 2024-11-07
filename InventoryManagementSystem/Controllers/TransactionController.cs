@@ -16,21 +16,19 @@ namespace InventoryManagementSystem.Controllers
         private readonly IProductRepository _productRepository;
         private readonly ITransactionRepository _repository;
 
-        public TransactionController(ITransactionRepository transactionRepository, IProductRepository productRepository)
+        public TransactionController(ITransactionRepository transactionRepository,IProductRepository productRepository)
         {
             _transactionRepository = transactionRepository;
             _productRepository = productRepository;
         }
 
-        public void AddStock(int productId, int quantity)
+        public void AddStock(int productId,int quantity)
         {
             var product = _productRepository.FindById(productId);
-
             if (product == null)
             {
                 throw new ItemNotFoundException("\nProduct not found");
             }
-
             product.Quantity += quantity;
             _productRepository.Update(product); 
 
@@ -45,7 +43,7 @@ namespace InventoryManagementSystem.Controllers
             _transactionRepository.Add(transaction);
         }
 
-        public void RemoveStock(int productId, int quantity)
+        public void RemoveStock(int productId,int quantity)
         {
             var product = _productRepository.FindById(productId);
             if (product == null)

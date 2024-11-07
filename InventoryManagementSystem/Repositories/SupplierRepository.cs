@@ -2,7 +2,6 @@
 using InventoryManagementSystem.Interfaces;
 using InventoryManagementSystem.Models;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -52,7 +51,7 @@ namespace InventoryManagementSystem.Repositories
                 //mark Supplier as modified so entity framework will track changes
                 _context.Entry(supplier).State = EntityState.Modified; //ensure change to inventory are tracked
             }
-            _context.Suppliers.Remove(supplier);//removes Supplier from Suppliers dbSet
+            _context.Suppliers.Remove(supplier);//remove Supplier from Suppliers dbSet
             _context.SaveChanges(); //save changes to database which deletes Supplier
         }
 

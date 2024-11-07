@@ -170,6 +170,9 @@ namespace InventoryManagementSystem.Presentations
             {
                 Console.WriteLine($"\nError -> {ex.Message}");
             }
+            //DbUpdateException is exception in entity framework that occur when database update operation fails
+            //and typically happens in response to issues with saving changes to database such as constraint being violated issues
+            //or error in database connection or issue with data integrity
             catch (DbUpdateException ex) 
             {
                 Console.WriteLine($"\nError -> failed to add product check if inventory id or location name exists details -> {ex.Message}");
@@ -231,7 +234,7 @@ namespace InventoryManagementSystem.Presentations
 
                     deleteInventoryItems = confirmation?.ToLower() == "y";
                 }
-                _productController.DeleteProduct(id, deleteInventoryItems);
+                _productController.DeleteProduct(id,deleteInventoryItems);
                 Console.WriteLine("\nProduct deleted successfully");
             }
             catch (ItemNotFoundException ex)
