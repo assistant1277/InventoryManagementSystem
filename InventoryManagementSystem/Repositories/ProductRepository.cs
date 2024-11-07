@@ -52,8 +52,6 @@ namespace InventoryManagementSystem.Repositories
             _context.SaveChanges(); //save changes to the database
         }
 
-
-
         //find and return product by it productid including related inventory data
         public Product FindById(int productId)=> _context.Products.Include(p=> p.Inventory).FirstOrDefault(p=> p.ProductId == productId);
 

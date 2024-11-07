@@ -215,7 +215,6 @@ namespace InventoryManagementSystem.Presentations
                 Console.WriteLine($"\nUnexpected error occurred-> {ex.Message}");
             }
         }
-
        
         private void DeleteProduct()
         {
